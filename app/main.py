@@ -15,7 +15,14 @@ from app.model import (
     get_feature_importance,
     tdee_trend,
 )
-from app.schemas import Entry, EntryUpdate, UserProfile, TDEEPrediction, Analytics
+from app.schemas import (
+    Entry,
+    EntryUpdate,
+    UserProfile,
+    TDEEPrediction,
+    Analytics,
+    UserProfileUpdate,  # <-- Added!
+)
 from typing import List, Optional
 from contextlib import asynccontextmanager
 
@@ -44,7 +51,7 @@ def create_user(profile: UserProfile):
 
 @app.patch("/user", tags=["User"], dependencies=[Depends(verify_api_key)])
 def patch_user(
-    patch: EntryUpdate = Body(
+    patch: UserProfileUpdate = Body(
         ...,
         examples={
             "default": {

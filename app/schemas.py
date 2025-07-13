@@ -24,6 +24,16 @@ class UserProfile(BaseModel):
     current_weight: Optional[float] = None
 
 
+# PATCH-specific schema for partial update!
+class UserProfileUpdate(BaseModel):
+    user_id: str
+    age: Optional[int] = None
+    gender: Optional[str] = None
+    height_cm: Optional[float] = None
+    body_fat_pct: Optional[float] = None
+    current_weight: Optional[float] = None
+
+
 class TDEEPrediction(BaseModel):
     tdee: float
 
