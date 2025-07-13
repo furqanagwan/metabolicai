@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  metabolicai:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    env_file:
+      - .env.example
